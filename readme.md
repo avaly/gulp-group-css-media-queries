@@ -1,4 +1,7 @@
-# [gulp](http://gulpjs.com)-group-css-media-queries [![Build Status](https://travis-ci.org/avaly/gulp-group-css-media-queries.svg?branch=master)](https://travis-ci.org/avaly/gulp-group-css-media-queries)
+# [gulp](http://gulpjs.com)-group-css-media-queries
+
+[![Build Status](https://travis-ci.org/avaly/gulp-group-css-media-queries.svg?branch=master)](https://travis-ci.org/avaly/gulp-group-css-media-queries)
+[![Dependency Status](https://david-dm.org/avaly/gulp-group-css-media-queries.svg)](https://david-dm.org/avaly/gulp-group-css-media-queries)
 
 > CSS postprocessing: group media queries. Useful for postprocessing preprocessed CSS files.
 
