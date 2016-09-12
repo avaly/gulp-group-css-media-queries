@@ -28,7 +28,7 @@
 	"dependencies": {
 		"gulp-util": "~3.0.6",
 		"through2": "~2.0.0",
-		"group-css-media-queries": "~1.1.0"
+		"group-css-media-queries": "~1.4.1"
 	},
 	"devDependencies": {
 		"mocha": "*"
