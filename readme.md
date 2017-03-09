@@ -1,5 +1,7 @@
 # [gulp](http://gulpjs.com)-group-css-media-queries
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/avaly/gulp-group-css-media-queries.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/avaly/gulp-group-css-media-queries.svg?branch=master)](https://travis-ci.org/avaly/gulp-group-css-media-queries)
 [![Dependency Status](https://david-dm.org/avaly/gulp-group-css-media-queries.svg)](https://david-dm.org/avaly/gulp-group-css-media-queries)
 [![Flattr](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=avaly&url=https://github.com/avaly/gulp-group-css-media-queries&title=gulp-group-css-media-queries&language=&tags=github&category=software)
