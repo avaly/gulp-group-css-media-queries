@@ -1,6 +1,6 @@
 'use strict';
 var assert = require('assert');
-var gutil = require('gulp-util');
+var File = require('vinyl');
 var gcmq = require('./index');
 
 it('should group css media queries', function (cb) {
@@ -40,7 +40,7 @@ it('should group css media queries', function (cb) {
 
 	stream.on('end', cb);
 
-	stream.write(new gutil.File({
+	stream.write(new File({
 		base: __dirname,
 		path: __dirname + '/file.css',
 		contents: new Buffer(input)
