@@ -1,6 +1,6 @@
 {
 	"name": "gulp-group-css-media-queries",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "CSS postprocessing: group media queries. Useful for postprocessing preprocessed CSS files.",
 	"license": "MIT",
 	"main": "index.js",
