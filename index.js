@@ -4,7 +4,7 @@ var through = require('through2');
 var gcmq = require('group-css-media-queries');
 var applySourceMap = require('vinyl-sourcemaps-apply');
 
-module.exports = function () {
+module.exports = function (options) {
 	return through.obj(function (file, enc, cb) {
 		// generate source maps if plugin source-map present
 		if (file.sourceMap) {
