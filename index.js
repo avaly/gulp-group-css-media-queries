@@ -2,9 +2,14 @@
 var PluginError = require('plugin-error');
 var through = require('through2');
 var gcmq = require('group-css-media-queries');
+var applySourceMap = require('vinyl-sourcemaps-apply');
 
-module.exports = function () {
+module.exports = function (options) {
 	return through.obj(function (file, enc, cb) {
+		// generate source maps if plugin source-map present
+		if (file.sourceMap) {
+			options.makeSourceMaps = true;
+		}
 		if (file.isNull()) {
 			this.push(file);
 			return cb();
@@ -17,6 +22,10 @@ module.exports = function () {
 
 		try {
 			file.contents = new Buffer(gcmq(file.contents.toString()));
+			// apply source map to the chain
+			if (file.sourceMap) {
+				applySourceMap(file, result.map);
+			}
 		} catch (err) {
 			this.emit('error', new PluginError('gulp-group-css-media-queries', err));
 		}
