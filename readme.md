@@ -8,6 +8,10 @@
 
 This plugin is a wrapper for the [group-css-media-queries](https://github.com/Se7enSky/group-css-media-queries) plugin.
 
+**WARNING: This package is not actively maintained!**
+
+Alternatives: [`css-mqpacker`](https://github.com/hail2u/node-css-mqpacker)
+
 
 ## Install
 
