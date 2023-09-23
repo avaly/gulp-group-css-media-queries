@@ -1,50 +1,54 @@
 'use strict';
-var assert = require('assert');
-var File = require('vinyl');
-var gcmq = require('./index');
+const File = require('vinyl');
+const gcmq = require('.');
+const uvu = require('uvu')
+const assert = require('uvu/assert')
 
-it('should group css media queries', function (cb) {
-	var stream = gcmq(),
-		input = [
-			'#a { display: block; }',
-			'@media (min-width: 640px) { #b { float: left; } }',
-			'@media (min-width: 1280px) { #c { float: left; } }',
-			'@media (min-width: 640px) { #c { float: right; } }',
-		].join('\n'),
-		expected = [
-			'#a {',
-			'  display: block;',
-			'}',
-			'',
-			'@media (min-width: 640px) {',
-			'  #b {',
-			'    float: left;',
-			'  }',
-			'',
-			'  #c {',
-			'    float: right;',
-			'  }',
-			'}',
-			'',
-			'@media (min-width: 1280px) {',
-			'  #c {',
-			'    float: left;',
-			'  }',
-			'}',
-		].join('\n');
+uvu.test('should group css media queries', async () => {
+	const stream = gcmq()
+	const input = [
+		'#a { display: block; }',
+		'@media (min-width: 640px) { #b { float: left; } }',
+		'@media (min-width: 1280px) { #c { float: left; } }',
+		'@media (min-width: 640px) { #c { float: right; } }',
+	].join('\n')
+	const expected = [
+		'#a {',
+		'  display: block;',
+		'}',
+		'',
+		'@media (min-width: 640px) {',
+		'  #b {',
+		'    float: left;',
+		'  }',
+		'',
+		'  #c {',
+		'    float: right;',
+		'  }',
+		'}',
+		'',
+		'@media (min-width: 1280px) {',
+		'  #c {',
+		'    float: left;',
+		'  }',
+		'}',
+	].join('\n')
 
 	stream.on('data', function (file) {
-		assert.equal(file.relative, 'file.css');
-		assert.equal(file.contents.toString(), expected);
+		assert.is(file.relative, 'file.css');
+		assert.is(file.contents.toString(), expected);
 	});
 
-	stream.on('end', cb);
 
 	stream.write(new File({
 		base: __dirname,
 		path: __dirname + '/file.css',
-		contents: new Buffer(input)
+		contents: Buffer.from(input)
 	}));
 
-	stream.end();
+	stream.end()
+
+	await new Promise(resolve => stream.on('end', resolve))
 });
+
+uvu.test.run()
